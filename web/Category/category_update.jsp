@@ -36,7 +36,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Kategorien bearbeiten.</h1>
+        <h1><a href="../index.jsp">Kategorien bearbeiten.</a></h1>
         <p>beoarbeetn</p> 
     </div>
 </div><!-- /End Jumbotron -->

@@ -36,7 +36,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Activity Tracker</h1>
+        <h1><a href="index.jsp">Activity Tracker</a></h1>
         <p>Wir haben doch keine Zeit !</p> 
     </div>
 </div><!-- /End Jumbotron -->

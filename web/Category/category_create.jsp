@@ -41,7 +41,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Kategorien anlegen.</h1>
+        <h1><a href="../index.jsp">Kategorien anlegen</a></h1>
         <p>aaaleng</p> 
     </div>
 </div><!-- /End Jumbotron -->
@@ -59,7 +59,13 @@
             <h3 class="panel-title">Typ auswählen</h3>
         </div>
         <div class="panel-body">
-            <input type="text" name="Typ" value="" />
+            <select name="Typ">
+
+                <option value="Arbeit"> Arbeit</option>      
+                <option value="Privat"> Privat</option>     
+
+
+            </select>
         </div>
     </div> 
 
@@ -85,14 +91,14 @@
     %> 
 </form>
 
-   <script type="text/javascript">
+<script type="text/javascript">
 <!--
     function toggle_visibility(id) {
-       var e = document.getElementById(id);
-       if(e.style.display == 'none')
-          e.style.display = 'block';
-       else
-          e.style.display = 'none';
+        var e = document.getElementById(id);
+        if (e.style.display == 'none')
+            e.style.display = 'block';
+        else
+            e.style.display = 'none';
     }
 //-->
 </script>     
@@ -102,37 +108,37 @@
 <br></br>
 
 <div id="foo" class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Kategorien</div>
+    <!-- Default panel contents -->
+    <div class="panel-heading">Kategorien</div>
 
-  <!-- Table -->
-  <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
-    <tr>
-        <th width=”100px”>ID</th>
-        <th width=”100px”>Name</th>
-        <th width="100px">Beschreibung</th>
-        <th width=”100px”>Typ</th>
+    <!-- Table -->
+    <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
+        <tr>
+            <th width=”100px”>ID</th>
+            <th width=”100px”>Name</th>
+            <th width="100px">Beschreibung</th>
+            <th width=”100px”>Typ</th>
 
-    </tr>
-    <tr>                
-        <%
-            Category[] CategoryArr = categoryGetter.getCategorys();
-            for (int i = 0; i < CategoryArr.length; i++) {
-        %> 
-    <tr>
-        <td><b><%=CategoryArr[i].getCategoryId()%></b></td>
-        <td><b><%=CategoryArr[i].getCategoryName()%></b></td>
-        <td><b><%=CategoryArr[i].getCategoryDescription()%></b></td>
-        <td><b><%=CategoryArr[i].getCategoryType()%></b></td>
+        </tr>
+        <tr>                
+            <%
+                Category[] CategoryArr = categoryGetter.getCategorys();
+                for (int i = 0; i < CategoryArr.length; i++) {
+            %> 
+        <tr>
+            <td><b><%=CategoryArr[i].getCategoryId()%></b></td>
+            <td><b><%=CategoryArr[i].getCategoryName()%></b></td>
+            <td><b><%=CategoryArr[i].getCategoryDescription()%></b></td>
+            <td><b><%=CategoryArr[i].getCategoryType()%></b></td>
 
 
-        <%
-            }
-            HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
+            <%
+                }
+                HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
 
-        %>               
-    </tr>
-</table>
+            %>               
+        </tr>
+    </table>
 </div>
 
 

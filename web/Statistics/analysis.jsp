@@ -4,6 +4,12 @@
     Author     : hools_000
 --%>
 
+<%@page import="Activity.activityGetter"%>
+<%@page import="Hibernate.Activity"%>
+<%@page import="Hibernate.Activity"%>
+<%@page import="Hibernate.HibernateUtil"%>
+<%@page import="Category.categoryGetter"%>
+<%@page import="Hibernate.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -36,12 +42,105 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Auswertung deiner Daten</h1>
+        <h1><a href="../index.jsp">Auswertung deiner Daten</a></h1>
         <p>queryn</p> 
     </div>
 </div><!-- /End Jumbotron -->
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Typ auswählen</div>
+        <div class="panel-body">
+            <lable>Privat<input type="checkbox" name="checker" value="Privat"></lable>
+            <lable>Arbeit<input type="checkbox" name="checker" value="Arbeit"></lable>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Kategorie auswählen</div>
+        <div class="panel-body">
+            <select name="Kategorien">
+
+                <%
+                    Category[] CategoryArr = categoryGetter.getCategorys();
+                    for (int i = 0; i < CategoryArr.length; i++) {
+
+                %> 
+
+                <option value="<%=CategoryArr[i].getCategoryId()%>"><%=CategoryArr[i].getCategoryName()%></option>        
+
+                <%
+                    }
+                    HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
+
+                %>
+            </select>
+        </div>
+    </div>
 
 
+    <div class="panel panel-default">
+        <div class="panel-heading">Aktivität</div>
+        <div class="panel-body">
+            <select name="Aktivität">
+                <%
+                    Activity[] ActivityArr = activityGetter.getActivities();
+                    for (int i = 0; i < ActivityArr.length; i++) {
+
+                %> 
+
+                <option value="<%=ActivityArr[i].getActivityId()%>"><%=ActivityArr[i].getActivityName()%></option>        
+
+                <%
+                    }
+                    HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
+
+                %>
+            </select>
+            <input type="text" name="Criteria" value="" /> <input type="submit" value="suchen" >   
+        </div>
+    </div>       
+
+</div>
+
+<a href="#" onclick="toggle_visibility('foo');">Aktivitäten anzeigen</a>
+<br></br>
+
+<div id="foo" class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Aktivitäten</div>
+    <!-- Table -->
+    <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 
+        <tr>
+            <th width=”100px”>ID</th>
+            <th width=”100px”>Name</th>
+            <th width=”100px”>Beschreibung</th>
+            <th width=”100px”>Kategorie</th>
+            <th width=”100px”>Startzeit</th>
+            <th width=”100px”>Endzeit</th>
+        </tr>
+        <tr>                
+            <%                
+                
+                for (int i = 0; i < ActivityArr.length; i++) {
+
+            %> 
+        <tr>
+            <td><b><%=ActivityArr[i].getActivityId()%></b></td>
+            <td><b><%=ActivityArr[i].getActivityName()%></b></td>
+            <td><b><%=ActivityArr[i].getActivityDescription()%></b></td> 
+            <td><b><%=ActivityArr[i].getCategory().getCategoryId()%></b></td>
+            <td><b><%=ActivityArr[i].getActivityStartTime()%></b></td>
+            <td><b><%=ActivityArr[i].getActivityEndTime()%></b></td>                  
+
+
+            <%
+                }
+                HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
+
+            %>               
+        </tr>
+    </table>
+</div>
 <hr>
 
 <footer>

@@ -36,7 +36,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Aktivität bearbeiten.</h1>
+        <h1><a href="../index.jsp">Aktivität bearbeiten.</a></h1>
         <p>beooarbeetn</p> 
     </div>
 </div><!-- /End Jumbotron -->

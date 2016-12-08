@@ -50,7 +50,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Kategorien löschen.</h1>
+        <h1><a href="../index.jsp">Kategorien löschen.</a></h1>
         <p>leeeschen</p> 
     </div>
 </div><!-- /End Jumbotron -->
@@ -87,7 +87,7 @@
 
 <div id="foo" class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">Kategorien</div>
+    <div class="panel-heading"><a href="../index.jsp">Kategorien</a></div>
 
     <!-- Table -->
     <table class="table" width=”600px” border=”1″ bgcolor=”#FFF380″> 

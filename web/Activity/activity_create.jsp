@@ -72,7 +72,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Activität anlegen.</h1>
+        <h1><a href="../index.jsp">Aktivität anlegen.</a></h1>
         <p>aaaleng</p> 
     </div>
 </div><!-- /End Jumbotron -->
@@ -211,14 +211,14 @@ function toggle_visibility(id) {
             %>               
         </tr>
     </table>
-
+</div>
 
     <hr>
 
     <footer>
         <p>&copy; 2016 MoveoMed, GmbH</p>
     </footer>
-</div> <!-- /container -->  
+ <!-- /container -->  
 
 
 

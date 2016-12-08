@@ -36,7 +36,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Aktivität löschen.</h1>
+        <h1><a href="../index.jsp">Aktivität löschen.</a></h1>
         <p>weesch</p> 
     </div>
 </div><!-- /End Jumbotron -->
