@@ -96,7 +96,7 @@
         <div class="panel-body">
             <select name="Kategorien">
 
-                <%
+                <% 
                     Category[] CategoryArr = categoryGetter.getCategorys();
                     for (int i = 0; i < CategoryArr.length; i++) {
 
@@ -106,7 +106,7 @@
 
                 <%
                     }
-                    HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
+                    HibernateUtil.getSessionFactory().getCurrentSession().disconnect(); 
 
                 %>
             </select>
@@ -133,7 +133,7 @@
         String s4 = request.getParameter("activity_start_time");
         String s5 = request.getParameter("activity_end_time");
 
-        if (s1 != null && s2 != null && s4 != null && s5 != null) {
+        if (s1 != null && s2 != null && s3 != null && s4 != null && s5 != null) {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
             Category category = new Category();
@@ -156,7 +156,7 @@
             //out.println("aet " + activity_end_time);
             activitySetter.createActivity(s1, s2, category, activity_start_time, activity_end_time);
             //out.println("Kategorie" + s2 + "angelegt");
-        }
+        } 
     %> 
 </form>
 
@@ -191,7 +191,7 @@ function toggle_visibility(id) {
         </tr>
         <tr>                
             <%
-                Activity[] ActivityArr = activityGetter.getActivities();
+               Activity[] ActivityArr = activityGetter.getActivities();
                 for (int i = 0; i < ActivityArr.length; i++) {
 
             %> 
@@ -206,7 +206,7 @@ function toggle_visibility(id) {
 
             <%
                 }
-                HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
+                HibernateUtil.getSessionFactory().getCurrentSession().disconnect(); 
 
             %>               
         </tr>
