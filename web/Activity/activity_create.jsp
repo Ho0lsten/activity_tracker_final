@@ -48,23 +48,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script>
-        $(function () {
-            jQuery("#eventStart").combodate({
-                minYear: 2000,
-                maxYear: 2020
-            });
-        });
-        $(function () {
-            jQuery("#eventEnd").combodate({
-                        minYear: 2000,
-                        maxYear: 2020
-                    });
-                });
-
-
-    </script>
-
 </head>
 
 

@@ -1,21 +1,24 @@
 <%-- 
-    Document   : category_update
-    Created on : 02.12.2016, 12:49:12
-    Author     : hools_000
+    Document   : single_category_overview
+    Created on : 08.12.2016, 10:25:38
+    Author     : MM-Produktion
 --%>
 
-<%@page import="Category.categoryGetter"%>
-<%@page import="Hibernate.Category"%>
 <%@page import="Category.categorySetter"%>
+<%@page import="org.hibernate.Session"%>
+<%@page import="Hibernate.HibernateUtil"%>
+<%@page import="Category.categoryGetter"%>
+<%@page import="java.sql.Array"%>
+<%@page import="Hibernate.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-<head>
+<html>
+   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Activity Tracker - update category</title>
+    <title>Activity Tracker - create activity</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -26,24 +29,19 @@
     <!-- Custom Style -->
     <link rel="stylesheet" href="../css/style.css">
 
+    <!-- Combodate.js -->
+    <link rel="javascript" href="../css/combodate.js">
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
-
-
-
-<!-- Jumbotron -->
-<div class="jumbotron">
-    <div class="container">
-        <h1>Kategorien bearbeiten.</h1>
-        <p>beoarbeetn</p> 
-    </div>
-</div><!-- /End Jumbotron -->
-<body>
+    <body>
 
         <form>
             <%  String s0 = request.getParameter("ID");
@@ -86,18 +84,4 @@
             %>
         </form>
     </body>
-
-<hr>
-
-<footer>
-    <p>&copy; 2016 MoveoMed, GmbH</p>
-</footer>
-
-
-
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
 </html>
