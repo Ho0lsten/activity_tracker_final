@@ -127,7 +127,7 @@
             %> 
         <tr>
             <td><b><%=CategoryArr[i].getCategoryId()%></b></td>
-            <td><b><%=CategoryArr[i].getCategoryName()%></b></td>
+             <td><b><a href="category_update.jsp?ID=<%=CategoryArr[i].getCategoryId()%>"><%=CategoryArr[i].getCategoryName()%></a></b></td>
             <td><b><%=CategoryArr[i].getCategoryDescription()%></b></td>
             <td><b><%=CategoryArr[i].getCategoryType()%></b></td>
 

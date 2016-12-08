@@ -4,6 +4,7 @@
     Author     : hools_000
 --%>
 
+<%@page import="parser.durationCalc"%>
 <%@page import="Activity.activityGetter"%>
 <%@page import="Hibernate.Activity"%>
 <%@page import="Hibernate.Activity"%>
@@ -62,6 +63,7 @@
 
                 <%
                     Category[] CategoryArr = categoryGetter.getCategorys();
+                    Activity[] ActivityArr = activityGetter.getActivities();
                     for (int i = 0; i < CategoryArr.length; i++) {
 
                 %> 
@@ -78,27 +80,7 @@
     </div>
 
 
-    <div class="panel panel-default">
-        <div class="panel-heading">Aktivität</div>
-        <div class="panel-body">
-            <select name="Aktivität">
-                <%
-                    Activity[] ActivityArr = activityGetter.getActivities();
-                    for (int i = 0; i < ActivityArr.length; i++) {
 
-                %> 
-
-                <option value="<%=ActivityArr[i].getActivityId()%>"><%=ActivityArr[i].getActivityName()%></option>        
-
-                <%
-                    }
-                    HibernateUtil.getSessionFactory().getCurrentSession().disconnect();
-
-                %>
-            </select>
-            <input type="text" name="Criteria" value="" /> <input type="submit" value="suchen" >   
-        </div>
-    </div>       
 
 </div>
 
@@ -114,23 +96,18 @@
             <th width=”100px”>ID</th>
             <th width=”100px”>Name</th>
             <th width=”100px”>Beschreibung</th>
-            <th width=”100px”>Kategorie</th>
-            <th width=”100px”>Startzeit</th>
-            <th width=”100px”>Endzeit</th>
+            <th width=”100px”>Typ</th>
+            <th width=”100px”>Dauer</th>
         </tr>
         <tr>                
-            <%                
-                
-                for (int i = 0; i < ActivityArr.length; i++) {
-
+            <%                for (int i = 0; i < CategoryArr.length; i++) {
             %> 
         <tr>
-            <td><b><%=ActivityArr[i].getActivityId()%></b></td>
-            <td><b><%=ActivityArr[i].getActivityName()%></b></td>
-            <td><b><%=ActivityArr[i].getActivityDescription()%></b></td> 
-            <td><b><%=ActivityArr[i].getCategory().getCategoryId()%></b></td>
-            <td><b><%=ActivityArr[i].getActivityStartTime()%></b></td>
-            <td><b><%=ActivityArr[i].getActivityEndTime()%></b></td>                  
+            <td><b><%=CategoryArr[i].getCategoryId()%></b></td>
+            <td><b><a href="category_update.jsp?ID=<%=CategoryArr[i].getCategoryId()%>"><%=CategoryArr[i].getCategoryName()%></a></b></td>
+            <td><b><%=CategoryArr[i].getCategoryDescription()%></b></td>
+            <td><b><%=CategoryArr[i].getCategoryType()%></b></td>
+            <td><b><%=durationCalc.calculateDuration(ActivityArr[i].getActivityStartTime(), ActivityArr[i].getActivityEndTime())%></b></td>
 
 
             <%
@@ -141,6 +118,9 @@
         </tr>
     </table>
 </div>
+
+
+
 <hr>
 
 <footer>

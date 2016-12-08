@@ -66,4 +66,19 @@ public class categoryGetter {
 
     }
 
+    public static Category getCategoryById(int categoryId) {
+        Session session;
+        Category category = new Category();
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+
+            category = (Category) session.get(Category.class, categoryId);
+            Hibernate.initialize(category);
+            // List<Category> Categoryresult = criteria.list();
+
+        } catch (HibernateException e) {
+            throw e;
+        }
+        return category;
+    }
 }

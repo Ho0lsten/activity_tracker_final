@@ -48,22 +48,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script>
-        $(function () {
-            jQuery("#eventStart").combodate({
-                minYear: 2000,
-                maxYear: 2020
-            });
-        });
-        $(function () {
-            jQuery("#eventEnd").combodate({
-                        minYear: 2000,
-                        maxYear: 2020
-                    });
-                });
-
-
-    </script>
+ 
 
 </head>
 
@@ -129,10 +114,10 @@
 
     <%  String s1 = request.getParameter("Name");
         String s2 = request.getParameter("Beschreibung");
-        String s3 = request.getParameter("Kategorie");
+        String s3 = request.getParameter("Kategorien");
         String s4 = request.getParameter("activity_start_time");
         String s5 = request.getParameter("activity_end_time");
-
+out.println(s1);out.println(s2);out.println(s3);out.println(s4);out.println(s5);
         if (s1 != null && s2 != null && s3 != null && s4 != null && s5 != null) {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
@@ -161,15 +146,15 @@
 </form>
 
 <script type="text/javascript">
-<            !--
+
 function toggle_visibility(id) {
                     var e = document.getElementById(id);
-            if (e.style.display == 'none')
+            if (e.style.display === 'none')
                 e.style.display = 'block';
             else
                 e.style.display = 'none';
 }
-//-->
+
 </script>     
 <br></br>
 

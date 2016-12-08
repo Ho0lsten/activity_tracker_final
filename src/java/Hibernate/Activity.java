@@ -57,14 +57,14 @@ public class Activity  implements java.io.Serializable {
     public void setActivityDescription(String activityDescription) {
         this.activityDescription = activityDescription;
     }
-    public Date getActivityStartTime() {
+    public Timestamp getActivityStartTime() {
         return this.activityStartTime;
     }
     
     public void setActivityStartTime(Timestamp activityStartTime) {
         this.activityStartTime = activityStartTime;
     }
-    public Date getActivityEndTime() {
+    public Timestamp getActivityEndTime() {
         return this.activityEndTime;
     }
     

@@ -15,30 +15,33 @@ import java.text.SimpleDateFormat;
 public class durationCalc {
 
     public static long calculateDuration(Timestamp activityStartTime, Timestamp activityEndTime) {
+        long diffDays;
+        long diffHours;
+        long diffMinutes;
+        long diffSeconds ;
+
 
 //         Timestamp startStamp = Timestamp activityStartTime;
-//                Timestamp endStamp = Timestamp activityStartTime;
-//                long duration = endDate.getTime() - startDate.getTime();
-//
-//        long diffInSeconds = TimeUnit.MILLISECONDS.toSeconds(duration);
-//        long diffInMinutes = TimeUnit.MILLISECONDS.toMinutes(duration);
-//        long diffInHours = TimeUnit.MILLISECONDS.toHours(duration);
-//        String dateStart = "01/14/2012 09:29:58";
-//        String dateStop = "01/15/2012 10:31:48";
-        //HH converts hour in 24 hours format (0-23), day calculation
-//        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-//        Timestamp d1 = null;
-//        Timestamp d2 = null;
+                //                Timestamp endStamp = Timestamp activityStartTime;
+                //                long duration = endDate.getTime() - startDate.getTime();
+                //
+                //        long diffInSeconds = TimeUnit.MILLISECONDS.toSeconds(duration);
+                //        long diffInMinutes = TimeUnit.MILLISECONDS.toMinutes(duration);
+                //        long diffInHours = TimeUnit.MILLISECONDS.toHours(duration);
+                //        String dateStart = "01/14/2012 09:29:58";
+                //        String dateStop = "01/15/2012 10:31:48";
+                //HH converts hour in 24 hours format (0-23), day calculation
+                //        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                //        Timestamp d1 = null;
+                //        Timestamp d2 = null;
         try {
             //in milliseconds
             long diff = activityEndTime.getTime() - activityStartTime.getTime();
 
-            long diffSeconds = diff / 1000 % 60;
-            long diffMinutes = diff / (60 * 1000) % 60;
-            long diffHours = diff / (60 * 60 * 1000) % 24;
-            long diffDays = diff / (24 * 60 * 60 * 1000);
-
-            return diffHours;
+            diffSeconds = diff / 1000 % 60;
+            diffMinutes = diff / (60 * 1000) % 60;
+            diffHours = diff / (60 * 60 * 1000) % 24;
+            diffDays = diff / (24 * 60 * 60 * 1000);
 
 //            System.out.print(diffDays + " days, ");
 //            System.out.print(diffHours + " hours, ");
@@ -46,8 +49,8 @@ public class durationCalc {
 //            System.out.print(diffSeconds + " seconds.");
         } catch (Exception e) {
             System.out.println("Exception :" + e);
-return null;
+            throw e;
         }
-
+        return diffHours;
     }
 }
